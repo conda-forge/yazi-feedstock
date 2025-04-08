@@ -1,5 +1,5 @@
 {% set name = "yazi" %}
-{% set version = "25.2.11" %}
+{% set version = "25.4.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/sxyazi/yazi/archive/v{{ version }}.tar.gz
-  sha256: d3879b85465e036abfd69c53488e9bc90c9ad52a31080511a0fcd1b11f81f10b
+  sha256: b001df58df5276587eecb89ed90e8ea7a2bf738819ccb1afc722355fa2c56eae
 
 build:
   number: 0
