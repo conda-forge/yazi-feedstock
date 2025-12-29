@@ -1,3 +1,57 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index a36d1b28..27c68dcb 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -4292,26 +4292,6 @@ dependencies = [
+  "cfg-if",
+ ]
+ 
+-[[package]]
+-name = "tikv-jemalloc-sys"
+-version = "0.6.1+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "cd8aa5b2ab86a2cefa406d889139c162cbb230092f7d1d7cbc1716405d852a3b"
+-dependencies = [
+- "cc",
+- "libc",
+-]
+-
+-[[package]]
+-name = "tikv-jemallocator"
+-version = "0.6.1"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "0359b4327f954e0567e69fb191cf1436617748813819c94b8cd4a431422d053a"
+-dependencies = [
+- "libc",
+- "tikv-jemalloc-sys",
+-]
+-
+ [[package]]
+ name = "time"
+ version = "0.3.44"
+@@ -5557,7 +5537,6 @@ dependencies = [
+  "ratatui",
+  "scopeguard",
+  "signal-hook-tokio",
+- "tikv-jemallocator",
+  "tokio",
+  "tokio-stream",
+  "tracing",
+diff --git a/yazi-fm/Cargo.toml b/yazi-fm/Cargo.toml
+index bfa2f30b..5b30d630 100644
+--- a/yazi-fm/Cargo.toml
++++ b/yazi-fm/Cargo.toml
+@@ -69,8 +69,8 @@ signal-hook-tokio = { version = "0.3.1", features = [ "futures-v0_3" ] }
+ [target.'cfg(target_os = "macos")'.dependencies]
+ crossterm = { workspace = true, features = [ "use-dev-tty", "libc" ] }
+ 
+-[target.'cfg(all(not(target_os = "macos"), not(target_os = "windows")))'.dependencies]
+-tikv-jemallocator = "0.6.1"
++# [target.'cfg(all(not(target_os = "macos"), not(target_os = "windows")))'.dependencies]
++# tikv-jemallocator = "0.6.1"
+ 
+ [[bin]]
+ name = "yazi"
 diff --git a/yazi-fm/src/main.rs b/yazi-fm/src/main.rs
 index 6f7f0153..2879e46d 100644
 --- a/yazi-fm/src/main.rs
