@@ -4,7 +4,6 @@ index 6f7f0153..0eb70bae 100644
 +++ b/yazi-fm/src/main.rs
 @@ -1,4 +1,4 @@
 -#[cfg(all(not(target_os = "macos"), not(target_os = "windows")))]
-+#[cfg(all(not(target_os = "macos"), not(target_os = "windows"), not(target_os = "linux", target_arch = "powerpc64")))]
++#[cfg(all(not(target_os = "macos"), not(target_os = "windows"), not(all(target_os = "linux", target_arch = "powerpc64"))))]
  #[global_allocator]
  static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
- 
