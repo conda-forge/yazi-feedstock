@@ -1,9 +1,14 @@
 diff --git a/yazi-fm/src/main.rs b/yazi-fm/src/main.rs
-index 6f7f0153..0eb70bae 100644
+index 6f7f0153..2879e46d 100644
 --- a/yazi-fm/src/main.rs
 +++ b/yazi-fm/src/main.rs
-@@ -1,4 +1,4 @@
+@@ -1,6 +1,6 @@
 -#[cfg(all(not(target_os = "macos"), not(target_os = "windows")))]
-+#[cfg(all(not(target_os = "macos"), not(target_os = "windows"), not(all(target_os = "linux", target_arch = "powerpc64"))))]
- #[global_allocator]
- static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
+-#[global_allocator]
+-static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
++// #[cfg(all(not(target_os = "macos"), not(target_os = "windows")))]
++// #[global_allocator]
++// static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
+ 
+ yazi_macro::mod_pub!(app cmp confirm help input mgr notify pick spot tasks which);
+ 
