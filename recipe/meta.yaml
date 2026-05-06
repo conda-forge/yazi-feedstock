@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/sxyazi/yazi/archive/v{{ version }}.tar.gz
   sha256: a18445df86a20068f7b17609d12d6f635de488958579ae7a2b143a244ba7e63f
-  patches:
-    - 000-powerpc-linker.patch
 
 build:
   number: 0
